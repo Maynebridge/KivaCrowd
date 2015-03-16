@@ -16,6 +16,7 @@ static NSString * const MBKivaAssetFetcherAPIVersion = @"v1";
 static NSString * const MBKivaAssetFetcherAPIEndpointRelease = @"releases/api/current";
 static NSString * const MBKivaAssetFetcherAPIFileType = @"json";
 
+
 @interface MBKivaAssetFetcher ()
 
 @property (nonatomic) NSURLSession *session;
@@ -64,7 +65,7 @@ static NSString * const MBKivaAssetFetcherAPIFileType = @"json";
         return;
     }
     
-    if (![[MBNetworkReachability sharedKivaHostReachability] isReachable]) {
+    if ([[MBNetworkReachability sharedKivaHostReachability] isNotReachable]) {
         NSDictionary *userInfo = @{NSLocalizedDescriptionKey :@"Unable to fetch data assets from Kiva because we are not connected to the internet"};
         NSError *networkNotReachableError = [NSError errorWithDomain:NSStringFromClass([self class])
                                                                 code:0

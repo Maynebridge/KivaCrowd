@@ -57,11 +57,11 @@
 @import SystemConfiguration;
 #import <netinet/in.h>
 
-typedef NS_ENUM(NSInteger, MBNetworkReachabilityStatus) {
-    MBNetworkReachabilityStatusNotReachable = 0,
-    MBNetworkReachabilityStatusReachableViaWiFi,
-    MBNetworkReachabilityStatusReachableViaWWAN
-};
+typedef enum : NSInteger {
+    NotReachable = 0,
+    ReachableViaWiFi,
+    ReachableViaWWAN
+} NetworkStatus;
 
 #import <Foundation/Foundation.h>
 
@@ -71,6 +71,7 @@ extern NSString * const MBNetworkReachabilityChangedNotification;
 
 + (MBNetworkReachability *)sharedKivaHostReachability;
 
+- (BOOL)isNotReachable;
 - (BOOL)isReachable;
 
 // Original Apple Demo Interface follows
@@ -101,7 +102,7 @@ extern NSString * const MBNetworkReachabilityChangedNotification;
 - (BOOL)startNotifier;
 - (void)stopNotifier;
 
-- (MBNetworkReachabilityStatus)currentReachabilityStatus;
+- (NetworkStatus)currentReachabilityStatus;
 
 /*!
  * WWAN may be available, but not active until a connection has been established. WiFi may require a connection for VPN on Demand.

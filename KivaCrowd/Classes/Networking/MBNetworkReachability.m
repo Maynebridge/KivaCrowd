@@ -121,6 +121,14 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     return sharedInstance;
 }
 
+- (BOOL)isNotReachable {
+    return [self currentReachabilityStatus] == NotReachable;
+}
+
+- (BOOL)isReachable {
+    return [self currentReachabilityStatus] != NotReachable;
+}
+
 // Original Apple Reachability Demo 3.5 Implementation Follows
 
 + (instancetype)reachabilityWithHostName:(NSString *)hostName {
@@ -209,32 +217,32 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 
 #pragma mark - Network Flag Handling
 
-- (MBNetworkReachabilityStatus)localWiFiStatusForFlags:(SCNetworkReachabilityFlags)flags
+- (NetworkStatus)localWiFiStatusForFlags:(SCNetworkReachabilityFlags)flags
 {
     PrintReachabilityFlags(flags, "localWiFiStatusForFlags");
-    MBNetworkReachabilityStatus returnValue = MBNetworkReachabilityStatusNotReachable;
+    NetworkStatus returnValue = NotReachable;
     
     if ((flags & kSCNetworkReachabilityFlagsReachable) && (flags & kSCNetworkReachabilityFlagsIsDirect)) {
-        returnValue = MBNetworkReachabilityStatusReachableViaWiFi;
+        returnValue = ReachableViaWiFi;
     }
     
     return returnValue;
 }
 
-- (MBNetworkReachabilityStatus)networkStatusForFlags:(SCNetworkReachabilityFlags)flags {
+- (NetworkStatus)networkStatusForFlags:(SCNetworkReachabilityFlags)flags {
     PrintReachabilityFlags(flags, "networkStatusForFlags");
     if ((flags & kSCNetworkReachabilityFlagsReachable) == 0) {
         // The target host is not reachable.
-        return MBNetworkReachabilityStatusNotReachable;
+        return NotReachable;
     }
     
-    MBNetworkReachabilityStatus returnValue = MBNetworkReachabilityStatusNotReachable;
+    NetworkStatus returnValue = NotReachable;
     
     if ((flags & kSCNetworkReachabilityFlagsConnectionRequired) == 0) {
         /*
          If the target host is reachable and no connection is required then we'll assume (for now) that you're on Wi-Fi...
          */
-        returnValue = MBNetworkReachabilityStatusReachableViaWiFi;
+        returnValue = ReachableViaWiFi;
     }
     
     if ((((flags & kSCNetworkReachabilityFlagsConnectionOnDemand ) != 0) ||
@@ -247,7 +255,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
             /*
              ... and no [user] intervention is needed...
              */
-            returnValue = MBNetworkReachabilityStatusReachableViaWiFi;
+            returnValue = ReachableViaWiFi;
         }
     }
     
@@ -255,7 +263,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         /*
          ... but WWAN connections are OK if the calling application is using the CFNetwork APIs.
          */
-        returnValue = MBNetworkReachabilityStatusReachableViaWWAN;
+        returnValue = ReachableViaWWAN;
     }
     
     return returnValue;
@@ -272,9 +280,9 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     return NO;
 }
 
-- (MBNetworkReachabilityStatus)currentReachabilityStatus {
+- (NetworkStatus)currentReachabilityStatus {
     NSAssert(_reachabilityRef != NULL, @"currentNetworkStatus called with NULL SCNetworkReachabilityRef");
-    MBNetworkReachabilityStatus returnValue = MBNetworkReachabilityStatusNotReachable;
+    NetworkStatus returnValue = NotReachable;
     SCNetworkReachabilityFlags flags;
     
     if (SCNetworkReachabilityGetFlags(_reachabilityRef, &flags)) {
@@ -287,18 +295,6 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     }
     
     return returnValue;
-}
-
-- (BOOL)isReachable {
-    NSAssert(_reachabilityRef != NULL, @"currentNetworkStatus called with NULL SCNetworkReachabilityRef");
-    MBNetworkReachabilityStatus networkStatus = MBNetworkReachabilityStatusNotReachable;
-    SCNetworkReachabilityFlags flags;
-    
-    if (SCNetworkReachabilityGetFlags(_reachabilityRef, &flags)) {
-        networkStatus = [self networkStatusForFlags:flags];
-    }
-    
-    return networkStatus != MBNetworkReachabilityStatusNotReachable;
 }
 
 @end
