@@ -9,6 +9,10 @@
 #import "AppDelegate.h"
 #import "DetailViewController.h"
 #import "MasterViewController.h"
+#import "MBKivaConstants.h"
+#import "MBKivaAssetFetcher.h"
+#import "NSObject+MBAdditions.h"
+#import "NSDictionary+MBAdditions.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -27,6 +31,27 @@
     UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
     MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
+    
+    MBKivaAssetFetcher *fetcher = [[MBKivaAssetFetcher alloc] init];
+    [fetcher requestAPIReleaseVersionWithCompletion:^(NSDictionary *dictionary, NSError *error) {
+        if (error) {
+            NSLog(@"An error occurred while fetching Kiva Release API: %@", error.localizedDescription);
+        }
+        else if ([dictionary isDictionary]) {
+            NSDictionary *releaseDictionary = [dictionary dictionaryForKey:MBKivaConstantAPIKeyRelease];
+            if ([releaseDictionary isDictionary]) {
+                NSString *releaseID = [releaseDictionary stringForKey:MBKivaConstantAPIKeyReleaseID];
+                if ([releaseID isString]) {
+                    NSLog(@"Kiva Release ID: %@", releaseID);
+                }
+                NSString *releaseDate = [releaseDictionary stringForKey:MBKivaConstantAPIKeyReleaseDate];
+                if ([releaseDate isString]) {
+                    NSLog(@"Kiva Release Date: %@", releaseDate);
+                }
+            }
+        }
+    }];
+    
     return YES;
 }
 

@@ -16,6 +16,11 @@
 		8CE603A01AB6058E005FE5D5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CE6039F1AB6058E005FE5D5 /* Images.xcassets */; };
 		8CE603A31AB6058E005FE5D5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CE603A11AB6058E005FE5D5 /* LaunchScreen.xib */; };
 		8CE603AF1AB6058E005FE5D5 /* KivaCrowdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE603AE1AB6058E005FE5D5 /* KivaCrowdTests.m */; };
+		8CE603C41AB6184F005FE5D5 /* MBKivaAssetFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE603C31AB6184F005FE5D5 /* MBKivaAssetFetcher.m */; };
+		8CE603CB1AB62322005FE5D5 /* NSObject+MBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE603CA1AB62322005FE5D5 /* NSObject+MBAdditions.m */; };
+		8CE603CF1AB62790005FE5D5 /* MBNetworkReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE603CE1AB62790005FE5D5 /* MBNetworkReachability.m */; };
+		8CE603D41AB64C0A005FE5D5 /* NSDictionary+MBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE603D31AB64C0A005FE5D5 /* NSDictionary+MBAdditions.m */; };
+		8CE603D71AB64EEC005FE5D5 /* NSArray+MBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE603D61AB64EEC005FE5D5 /* NSArray+MBAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +50,17 @@
 		8CE603A81AB6058E005FE5D5 /* KivaCrowdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KivaCrowdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CE603AD1AB6058E005FE5D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CE603AE1AB6058E005FE5D5 /* KivaCrowdTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KivaCrowdTests.m; sourceTree = "<group>"; };
+		8CE603C21AB6184F005FE5D5 /* MBKivaAssetFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBKivaAssetFetcher.h; path = Classes/API/Kiva/MBKivaAssetFetcher.h; sourceTree = "<group>"; };
+		8CE603C31AB6184F005FE5D5 /* MBKivaAssetFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBKivaAssetFetcher.m; path = Classes/API/Kiva/MBKivaAssetFetcher.m; sourceTree = "<group>"; };
+		8CE603C91AB62322005FE5D5 /* NSObject+MBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+MBAdditions.h"; path = "Classes/Categories/NSObject+MBAdditions.h"; sourceTree = "<group>"; };
+		8CE603CA1AB62322005FE5D5 /* NSObject+MBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MBAdditions.m"; path = "Classes/Categories/NSObject+MBAdditions.m"; sourceTree = "<group>"; };
+		8CE603CD1AB62790005FE5D5 /* MBNetworkReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBNetworkReachability.h; path = Classes/Networking/MBNetworkReachability.h; sourceTree = "<group>"; };
+		8CE603CE1AB62790005FE5D5 /* MBNetworkReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBNetworkReachability.m; path = Classes/Networking/MBNetworkReachability.m; sourceTree = "<group>"; };
+		8CE603D11AB640FC005FE5D5 /* MBKivaConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBKivaConstants.h; sourceTree = "<group>"; };
+		8CE603D21AB64C0A005FE5D5 /* NSDictionary+MBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+MBAdditions.h"; path = "Classes/Categories/NSDictionary+MBAdditions.h"; sourceTree = "<group>"; };
+		8CE603D31AB64C0A005FE5D5 /* NSDictionary+MBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+MBAdditions.m"; path = "Classes/Categories/NSDictionary+MBAdditions.m"; sourceTree = "<group>"; };
+		8CE603D51AB64EEC005FE5D5 /* NSArray+MBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+MBAdditions.h"; path = "Classes/Categories/NSArray+MBAdditions.h"; sourceTree = "<group>"; };
+		8CE603D61AB64EEC005FE5D5 /* NSArray+MBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MBAdditions.m"; path = "Classes/Categories/NSArray+MBAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +102,8 @@
 		8CE6038B1AB6058E005FE5D5 /* KivaCrowd */ = {
 			isa = PBXGroup;
 			children = (
+				8CE603D01AB640D1005FE5D5 /* Constants */,
+				8CE603BC1AB616AE005FE5D5 /* Classes */,
 				8CE603901AB6058E005FE5D5 /* AppDelegate.h */,
 				8CE603911AB6058E005FE5D5 /* AppDelegate.m */,
 				8CE603961AB6058E005FE5D5 /* MasterViewController.h */,
@@ -125,6 +143,87 @@
 				8CE603AD1AB6058E005FE5D5 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8CE603BC1AB616AE005FE5D5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8CE603CC1AB62768005FE5D5 /* Networking */,
+				8CE603C51AB621BD005FE5D5 /* Categories */,
+				8CE603C01AB617BC005FE5D5 /* API */,
+				8CE603BE1AB616E6005FE5D5 /* Model */,
+				8CE603BF1AB616F4005FE5D5 /* View */,
+				8CE603BD1AB616B8005FE5D5 /* Controller */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		8CE603BD1AB616B8005FE5D5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		8CE603BE1AB616E6005FE5D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		8CE603BF1AB616F4005FE5D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8CE603C01AB617BC005FE5D5 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8CE603C11AB617D2005FE5D5 /* Kiva */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		8CE603C11AB617D2005FE5D5 /* Kiva */ = {
+			isa = PBXGroup;
+			children = (
+				8CE603C21AB6184F005FE5D5 /* MBKivaAssetFetcher.h */,
+				8CE603C31AB6184F005FE5D5 /* MBKivaAssetFetcher.m */,
+			);
+			name = Kiva;
+			sourceTree = "<group>";
+		};
+		8CE603C51AB621BD005FE5D5 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				8CE603C91AB62322005FE5D5 /* NSObject+MBAdditions.h */,
+				8CE603CA1AB62322005FE5D5 /* NSObject+MBAdditions.m */,
+				8CE603D21AB64C0A005FE5D5 /* NSDictionary+MBAdditions.h */,
+				8CE603D31AB64C0A005FE5D5 /* NSDictionary+MBAdditions.m */,
+				8CE603D51AB64EEC005FE5D5 /* NSArray+MBAdditions.h */,
+				8CE603D61AB64EEC005FE5D5 /* NSArray+MBAdditions.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		8CE603CC1AB62768005FE5D5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				8CE603CD1AB62790005FE5D5 /* MBNetworkReachability.h */,
+				8CE603CE1AB62790005FE5D5 /* MBNetworkReachability.m */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		8CE603D01AB640D1005FE5D5 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				8CE603D11AB640FC005FE5D5 /* MBKivaConstants.h */,
+			);
+			name = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +275,7 @@
 				TargetAttributes = {
 					8CE603881AB6058E005FE5D5 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = EEZEUZ87M2;
 					};
 					8CE603A71AB6058E005FE5D5 = {
 						CreatedOnToolsVersion = 6.2;
@@ -227,10 +327,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CE603CB1AB62322005FE5D5 /* NSObject+MBAdditions.m in Sources */,
+				8CE603D71AB64EEC005FE5D5 /* NSArray+MBAdditions.m in Sources */,
 				8CE6039B1AB6058E005FE5D5 /* DetailViewController.m in Sources */,
 				8CE603981AB6058E005FE5D5 /* MasterViewController.m in Sources */,
+				8CE603D41AB64C0A005FE5D5 /* NSDictionary+MBAdditions.m in Sources */,
+				8CE603CF1AB62790005FE5D5 /* MBNetworkReachability.m in Sources */,
 				8CE603921AB6058E005FE5D5 /* AppDelegate.m in Sources */,
 				8CE603951AB6058E005FE5D5 /* KivaCrowd.xcdatamodeld in Sources */,
+				8CE603C41AB6184F005FE5D5 /* MBKivaAssetFetcher.m in Sources */,
 				8CE6038F1AB6058E005FE5D5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,7 +460,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = KivaCrowd/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -365,7 +472,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = KivaCrowd/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
