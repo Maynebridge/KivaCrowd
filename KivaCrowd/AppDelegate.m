@@ -10,7 +10,7 @@
 #import "DetailViewController.h"
 #import "MasterViewController.h"
 #import "MBKivaConstants.h"
-#import "MBKivaAssetFetcher.h"
+#import "MBKivaAssetManager.h"
 #import "NSObject+MBAdditions.h"
 #import "NSDictionary+MBAdditions.h"
 
@@ -31,9 +31,8 @@
     UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
     MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
-    
-    MBKivaAssetFetcher *fetcher = [[MBKivaAssetFetcher alloc] init];
-    [fetcher requestAPIReleaseVersionWithCompletion:^(NSDictionary *dictionary, NSError *error) {
+
+    [[MBKivaAssetManager sharedManager] releaseVersionWithCompletion:^(NSDictionary *dictionary, NSError *error) {
         if (error) {
             NSLog(@"An error occurred while fetching Kiva Release API: %@", error.localizedDescription);
         }

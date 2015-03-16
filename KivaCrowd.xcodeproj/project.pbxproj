@@ -21,6 +21,7 @@
 		8CE603CF1AB62790005FE5D5 /* MBNetworkReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE603CE1AB62790005FE5D5 /* MBNetworkReachability.m */; };
 		8CE603D41AB64C0A005FE5D5 /* NSDictionary+MBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE603D31AB64C0A005FE5D5 /* NSDictionary+MBAdditions.m */; };
 		8CE603D71AB64EEC005FE5D5 /* NSArray+MBAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE603D61AB64EEC005FE5D5 /* NSArray+MBAdditions.m */; };
+		8CE603DA1AB65722005FE5D5 /* MBKivaAssetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE603D91AB65722005FE5D5 /* MBKivaAssetManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		8CE603D31AB64C0A005FE5D5 /* NSDictionary+MBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+MBAdditions.m"; path = "Classes/Categories/NSDictionary+MBAdditions.m"; sourceTree = "<group>"; };
 		8CE603D51AB64EEC005FE5D5 /* NSArray+MBAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+MBAdditions.h"; path = "Classes/Categories/NSArray+MBAdditions.h"; sourceTree = "<group>"; };
 		8CE603D61AB64EEC005FE5D5 /* NSArray+MBAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MBAdditions.m"; path = "Classes/Categories/NSArray+MBAdditions.m"; sourceTree = "<group>"; };
+		8CE603D81AB65722005FE5D5 /* MBKivaAssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBKivaAssetManager.h; path = Model/MBKivaAssetManager.h; sourceTree = "<group>"; };
+		8CE603D91AB65722005FE5D5 /* MBKivaAssetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBKivaAssetManager.m; path = Model/MBKivaAssetManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +171,8 @@
 		8CE603BE1AB616E6005FE5D5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8CE603D81AB65722005FE5D5 /* MBKivaAssetManager.h */,
+				8CE603D91AB65722005FE5D5 /* MBKivaAssetManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -328,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CE603CB1AB62322005FE5D5 /* NSObject+MBAdditions.m in Sources */,
+				8CE603DA1AB65722005FE5D5 /* MBKivaAssetManager.m in Sources */,
 				8CE603D71AB64EEC005FE5D5 /* NSArray+MBAdditions.m in Sources */,
 				8CE6039B1AB6058E005FE5D5 /* DetailViewController.m in Sources */,
 				8CE603981AB6058E005FE5D5 /* MasterViewController.m in Sources */,
